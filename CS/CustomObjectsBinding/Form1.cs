@@ -17,7 +17,7 @@ namespace CustomObjectsBinding {
 
         public Form1() {
             InitializeComponent();
-            schedulerStorage1.Resources.ColorSaving = ColorSavingType.Color;
+            schedulerDataStorage1.Resources.ColorSaving = DXColorSavingType.ColorInstance;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
@@ -28,7 +28,7 @@ namespace CustomObjectsBinding {
         }
 
         private void InitResources() {
-            ResourceMappingInfo mappings = this.schedulerStorage1.Resources.Mappings;
+            ResourceMappingInfo mappings = this.schedulerDataStorage1.Resources.Mappings;
             mappings.Id = "ResID";
             mappings.Color = "ResColor";
             mappings.Caption = "Name";
@@ -36,7 +36,7 @@ namespace CustomObjectsBinding {
             CustomResourceCollection.Add(CreateCustomResource(1, "Max Fowler", Color.PowderBlue));
             CustomResourceCollection.Add(CreateCustomResource(2, "Nancy Drewmore", Color.PaleVioletRed));
             CustomResourceCollection.Add(CreateCustomResource(3, "Pak Jang", Color.PeachPuff));
-            this.schedulerStorage1.Resources.DataSource = CustomResourceCollection;
+            this.schedulerDataStorage1.Resources.DataSource = CustomResourceCollection;
         }
 
         private CustomResource CreateCustomResource(int res_id, string caption, Color ResColor) {
@@ -50,7 +50,7 @@ namespace CustomObjectsBinding {
 
 
         private void InitAppointments() {
-            AppointmentMappingInfo mappings = this.schedulerStorage1.Appointments.Mappings;
+            AppointmentMappingInfo mappings = this.schedulerDataStorage1.Appointments.Mappings;
             mappings.Start = "StartTime";
             mappings.End = "EndTime";
             mappings.Subject = "Subject";
@@ -65,15 +65,15 @@ namespace CustomObjectsBinding {
             mappings.Type = "EventType";
 
             GenerateEvents(CustomEventList);
-            this.schedulerStorage1.Appointments.DataSource = CustomEventList;
+            this.schedulerDataStorage1.Appointments.DataSource = CustomEventList;
         }
 
 
         private void GenerateEvents(BindingList<CustomAppointment> eventList) {
-            int count = schedulerStorage1.Resources.Count;
+            int count = schedulerDataStorage1.Resources.Count;
 
             for (int i = 0; i < count; i++) {
-                Resource resource = schedulerStorage1.Resources[i];
+                Resource resource = schedulerDataStorage1.Resources[i];
                 string subjPrefix = resource.Caption + "'s ";
                 eventList.Add(CreateEvent(subjPrefix + "meeting", resource.Id, 2, 5));
                 eventList.Add(CreateEvent(subjPrefix + "travel", resource.Id, 3, 6));
