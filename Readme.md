@@ -1,3 +1,9 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [CustomObjects.cs](./CS/CustomObjectsBinding/CustomObjects.cs) (VB: [CustomObjects.vb](./VB/CustomObjectsBinding/CustomObjects.vb))
+* [Form1.cs](./CS/CustomObjectsBinding/Form1.cs) (VB: [Form1.vb](./VB/CustomObjectsBinding/Form1.vb))
+<!-- default file list end -->
 # How to bind the SchedulerControl to a collection of custom objects
 
 
