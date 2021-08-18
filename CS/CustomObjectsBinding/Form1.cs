@@ -14,15 +14,20 @@ namespace CustomObjectsBinding {
 
         private BindingList<CustomResource> CustomResourceCollection = new BindingList<CustomResource>();
         private BindingList<CustomAppointment> CustomEventList = new BindingList<CustomAppointment>();
+        BindingList<CustomLabel> CustomLabelList = new BindingList<CustomLabel>();
+        BindingList<CustomStatus> CustomStatusList = new BindingList<CustomStatus>();
 
         public Form1() {
             InitializeComponent();
+            WindowState = System.Windows.Forms.FormWindowState.Maximized;
             schedulerDataStorage1.Resources.ColorSaving = DXColorSavingType.ColorInstance;
         }
 
         private void Form1_Load(object sender, EventArgs e) {
             InitResources();
             InitAppointments();
+            InitLabels(CustomLabelList);
+            InitStatus(CustomStatusList);
             schedulerControl1.Start = DateTime.Now;
             UpdateControls();
         }
@@ -91,6 +96,48 @@ namespace CustomObjectsBinding {
             apt.Status = status;
             apt.Label = label;
             return apt;
+        }
+
+        public void InitLabels(BindingList<CustomLabel> labels) {
+            LabelMappingInfo mappingsLabel = schedulerDataStorage1.Labels.Mappings;
+            mappingsLabel.Color = "ColorLabel";
+            mappingsLabel.DisplayName = "Name";
+            mappingsLabel.Id = "ID";
+
+            for(int i = 0; i < 15; i++)
+                labels.Add(CreateCustomLabel(i));
+
+            schedulerDataStorage1.Labels.DataSource = CustomLabelList;
+        }
+
+        private CustomLabel CreateCustomLabel(int id) {
+            CustomLabel label = new CustomLabel();
+            label.ID = id;
+            label.Name = "Name" + id;
+            Random rnd = RandomInstance;
+            label.ColorLabel = Color.FromArgb(rnd.Next());
+            return label;
+        }
+
+        public void InitStatus(BindingList<CustomStatus> listStatus) {
+            StatusMappingInfo mappingsStatus = this.schedulerDataStorage1.Statuses.Mappings;
+            mappingsStatus.Brush = "ColorStatus";
+            mappingsStatus.DisplayName = "Name";
+            mappingsStatus.Id = "ID";
+
+            for(int i = 0; i < 15; i++)
+                listStatus.Add(CreateCustomStatus(i));
+
+            schedulerDataStorage1.Statuses.DataSource = CustomStatusList;
+        }
+
+        private CustomStatus CreateCustomStatus(int id) {
+            CustomStatus status = new CustomStatus();
+            status.ID = id;
+            status.Name = "Status" + id;
+            Random rnd = RandomInstance;
+            status.ColorStatus = Color.FromArgb(rnd.Next());
+            return status;
         }
 
         private void UpdateControls() {

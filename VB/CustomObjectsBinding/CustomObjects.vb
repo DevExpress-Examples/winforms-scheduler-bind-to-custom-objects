@@ -31,6 +31,74 @@ Namespace CustomObjectsBinding
         Public Property ResColor() As Color
         ' Set the SchedulerStorage.Resources.ColorSaving property to ColorSavingType.Color to display resources using the specified color. 
     End Class
-    #End Region ' #customresource
+#End Region ' #customresource
+
+    Public Class CustomLabel
+        Private m_name As String
+        Private _id As Integer
+        Private _color As Color
+
+        Public Property Name() As String
+            Get
+                Return m_name
+            End Get
+            Set(ByVal value As String)
+                m_name = value
+            End Set
+        End Property
+        Public Property ID() As Integer
+            Get
+                Return _id
+            End Get
+            Set(ByVal value As Integer)
+                _id = value
+            End Set
+        End Property
+        Public Property ColorLabel() As Color
+            Get
+                Return _color
+            End Get
+            Set(ByVal value As Color)
+                _color = value
+            End Set
+        End Property
+
+        Public Sub New()
+        End Sub
+    End Class
+
+
+    Public Class CustomStatus
+        Private m_name As String
+        Private _id As Integer
+        Private _color As Color
+        Public Property Name() As String
+            Get
+                Return m_name
+            End Get
+            Set(ByVal value As String)
+                m_name = value
+            End Set
+        End Property
+        Public Property ID() As Integer
+            Get
+                Return _id
+            End Get
+            Set(ByVal value As Integer)
+                _id = value
+            End Set
+        End Property
+        Public Property ColorStatus() As Color
+            Get
+                Return _color
+            End Get
+            Set(ByVal value As Color)
+                _color = value
+            End Set
+        End Property
+
+        Public Sub New()
+        End Sub
+    End Class
 
 End Namespace

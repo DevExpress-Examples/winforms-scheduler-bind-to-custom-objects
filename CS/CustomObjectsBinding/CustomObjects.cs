@@ -34,4 +34,32 @@ namespace CustomObjectsBinding {
     }
     #endregion #customresource
 
+    public class CustomLabel {
+        private string m_name;
+        private int _id;
+        private Color _color;
+
+        public string Name { get { return m_name; } set { m_name = value; } }
+        public int ID { get { return _id; } set { _id = value; } }
+        public Color ColorLabel { get { return _color; } set { _color = value; } }
+
+        public CustomLabel() {
+        }
+    }
+
+
+    public class CustomStatus {
+        private string m_name;
+        private int _id;
+        //private Brush _color;
+        private Color _color;
+        public string Name { get { return m_name; } set { m_name = value; } }
+        public int ID { get { return _id; } set { _id = value; } }
+        //public Brush ColorStatus { get { return _color; } set { _color = value; } }
+        public Color ColorStatus { get { return _color; } set { _color = value; } }
+
+        public CustomStatus() {
+        }
+    }
+
 }
