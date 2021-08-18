@@ -52,13 +52,7 @@
             Me.schedulerControl1.Start = New Date(2008, 10, 31, 0, 0, 0, 0)
             Me.schedulerControl1.TabIndex = 0
             Me.schedulerControl1.Text = "schedulerControl1"
-            TimeRuler1.TimeZoneId = "Russian Standard Time"
-            TimeRuler1.UseClientTimeZone = False
-            Me.schedulerControl1.Views.DayView.TimeRulers.Add(TimeRuler1)
-            TimeRuler2.TimeZoneId = "Russian Standard Time"
-            TimeRuler2.UseClientTimeZone = False
-            Me.schedulerControl1.Views.WorkWeekView.TimeRulers.Add(TimeRuler2)
-            Me.schedulerControl1.Views.YearView.UseOptimizedScrolling = False
+
             '
             'dateNavigator1
             '
