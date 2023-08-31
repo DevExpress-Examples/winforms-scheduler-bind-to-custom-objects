@@ -1,5 +1,7 @@
-﻿Namespace CustomObjectsBinding
-    Partial Public Class Form1
+Namespace CustomObjectsBinding
+
+    Partial Class Form1
+
         ''' <summary>
         ''' Required designer variable.
         ''' </summary>
@@ -10,34 +12,34 @@
         ''' </summary>
         ''' <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)
-            If disposing AndAlso (components IsNot Nothing) Then
-                components.Dispose()
+            If disposing AndAlso (Me.components IsNot Nothing) Then
+                Me.components.Dispose()
             End If
+
             MyBase.Dispose(disposing)
         End Sub
 
-        #Region "Windows Form Designer generated code"
-
+'#Region "Windows Form Designer generated code"
         ''' <summary>
         ''' Required method for Designer support - do not modify
         ''' the contents of this method with the code editor.
         ''' </summary>
         Private Sub InitializeComponent()
             Me.components = New System.ComponentModel.Container()
-            Dim timeRuler1 As New DevExpress.XtraScheduler.TimeRuler()
-            Dim timeRuler2 As New DevExpress.XtraScheduler.TimeRuler()
+            Dim timeRuler1 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
+            Dim timeRuler2 As DevExpress.XtraScheduler.TimeRuler = New DevExpress.XtraScheduler.TimeRuler()
             Me.schedulerControl1 = New DevExpress.XtraScheduler.SchedulerControl()
             Me.schedulerStorage1 = New DevExpress.XtraScheduler.SchedulerStorage(Me.components)
             Me.dateNavigator1 = New DevExpress.XtraScheduler.DateNavigator()
             Me.panelControl1 = New DevExpress.XtraEditors.PanelControl()
             Me.radioGroup1 = New DevExpress.XtraEditors.RadioGroup()
             Me.labelControl1 = New DevExpress.XtraEditors.LabelControl()
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.dateNavigator1, System.ComponentModel.ISupportInitialize).BeginInit()
-            DirectCast(Me.panelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.schedulerControl1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.schedulerStorage1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.dateNavigator1), System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.panelControl1), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.panelControl1.SuspendLayout()
-            DirectCast(Me.radioGroup1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+            CType((Me.radioGroup1.Properties), System.ComponentModel.ISupportInitialize).BeginInit()
             Me.SuspendLayout()
             ' 
             ' schedulerControl1
@@ -47,7 +49,7 @@
             Me.schedulerControl1.Location = New System.Drawing.Point(0, 30)
             Me.schedulerControl1.Name = "schedulerControl1"
             Me.schedulerControl1.Size = New System.Drawing.Size(584, 326)
-            Me.schedulerControl1.Start = New Date(2008, 10, 31, 0, 0, 0, 0)
+            Me.schedulerControl1.Start = New System.DateTime(2008, 10, 31, 0, 0, 0, 0)
             Me.schedulerControl1.Storage = Me.schedulerStorage1
             Me.schedulerControl1.TabIndex = 0
             Me.schedulerControl1.Text = "schedulerControl1"
@@ -84,13 +86,10 @@
             Me.radioGroup1.EditValue = 1
             Me.radioGroup1.Location = New System.Drawing.Point(62, 2)
             Me.radioGroup1.Name = "radioGroup1"
-            Me.radioGroup1.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() { _
-                New DevExpress.XtraEditors.Controls.RadioGroupItem(0, "None"), _
-                New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Resource"), _
-                New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Date") _
-            })
+            Me.radioGroup1.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(0, "None"), New DevExpress.XtraEditors.Controls.RadioGroupItem(2, "Resource"), New DevExpress.XtraEditors.Controls.RadioGroupItem(1, "Date")})
             Me.radioGroup1.Size = New System.Drawing.Size(328, 26)
             Me.radioGroup1.TabIndex = 0
+            AddHandler Me.radioGroup1.SelectedIndexChanged, New System.EventHandler(AddressOf Me.radioGroup1_SelectedIndexChanged)
             ' 
             ' labelControl1
             ' 
@@ -112,24 +111,27 @@
             Me.Controls.Add(Me.panelControl1)
             Me.Name = "Form1"
             Me.Text = "Form1"
-            DirectCast(Me.schedulerControl1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.schedulerStorage1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.dateNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
-            DirectCast(Me.panelControl1, System.ComponentModel.ISupportInitialize).EndInit()
+            AddHandler Me.Load, New System.EventHandler(AddressOf Me.Form1_Load)
+            CType((Me.schedulerControl1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.schedulerStorage1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.dateNavigator1), System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.panelControl1), System.ComponentModel.ISupportInitialize).EndInit()
             Me.panelControl1.ResumeLayout(False)
-            DirectCast(Me.radioGroup1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+            CType((Me.radioGroup1.Properties), System.ComponentModel.ISupportInitialize).EndInit()
             Me.ResumeLayout(False)
-
         End Sub
 
-        #End Region
-
+'#End Region
         Private schedulerControl1 As DevExpress.XtraScheduler.SchedulerControl
+
         Private schedulerStorage1 As DevExpress.XtraScheduler.SchedulerStorage
+
         Private dateNavigator1 As DevExpress.XtraScheduler.DateNavigator
+
         Private panelControl1 As DevExpress.XtraEditors.PanelControl
+
         Private labelControl1 As DevExpress.XtraEditors.LabelControl
-        Private WithEvents radioGroup1 As DevExpress.XtraEditors.RadioGroup
+
+        Private radioGroup1 As DevExpress.XtraEditors.RadioGroup
     End Class
 End Namespace
-
