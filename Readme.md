@@ -5,7 +5,7 @@
 <!-- default badges end -->
 # WinForms Scheduler - Bind to a collection of custom appointments
 
-This example shows how to bind the WinForms Scheduler control to a collection of business objects (`CustomAppointment`). The example creates two collections - one for appointments, another for resources. The appointment collection implements `IBindingList` (we recommend that you use the `System.ComponentModel.BindingList<T>`).
+This example binds the WinForms Scheduler control to a collection of business objects (`CustomAppointment`). The example creates two collections - one for appointments, another for resources. The appointment collection implements `IBindingList` (we recommend that you use the `System.ComponentModel.BindingList<T>`).
 
 > **Note**
 >
